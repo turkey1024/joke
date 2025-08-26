@@ -1,0 +1,17 @@
+name = "daily-joke-worker"
+compatibility_date = "2024-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+# 使用 Cron Trigger 每天 UTC 时间 8:00 运行（相当于北京时间16:00）
+# 格式: <分钟> <小时> <日> <月> <星期几>
+triggers = [{ cron = "0 8 * * *" }]
+
+# 环境变量（在Cloudflare Dashboard中设置）
+[vars]
+BREVO_SMTP_KEY = "@brevo_smtp_key"
+SENDER_EMAIL = "@sender_email"
+RECIPIENT_EMAIL = "@recipient_email"
+
+# 如果需要从API获取笑话，可以设置API端点
+JOKE_API_URL = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single"
+
