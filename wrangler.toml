@@ -1,5 +1,6 @@
 name = "daily-joke-email"
 compatibility_date = "2024-01-01"
+main = "index.js"
 
 [triggers]
 crons = ["0 23 * * *"]  # UTC时间23点（北京时间第二天7点）
